@@ -1,0 +1,143 @@
+.loading-element {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  background-color: #000000;
+  opacity: 0.5;
+
+  .loading-container {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    line-height: 24px;
+  }
+
+  .timing-function {
+    animation: circle-rotating infinite;
+    animation-timing-function: cubic-bezier(0,0,1,1);
+    animation-duration: 1s;
+  }
+
+  @keyframes circle-rotating {
+    0% {
+      transform: rotate(0)
+    }
+
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+  
+  .pg-icon {
+    width: 4px;
+    height: 4px;
+    border-radius: 3px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  #pg-icon-1 {
+    background-color: #00d694;
+    transform: translate(10px,0);
+  }
+
+  .circle-progress-animation-dot-1 {
+    animation: circle-rotating-1 infinite;
+    animation-timing-function: cubic-bezier(.33,0,.3,1);
+    animation-duration: 1s;
+  }
+
+  @keyframes circle-rotating-1 {
+    0% {
+      transform: translate(10px,0)
+    }
+
+    50% {
+      transform: translate(3px,0)
+    }
+
+    100% {
+      transform: translate(10px,0)
+    }
+  }
+
+  #pg-icon-2 {
+    background-color: #0381fe;
+    transform: translate(0,10px);
+  }
+
+  .circle-progress-animation-dot-2 {
+    animation: circle-rotating-2 infinite;
+    animation-timing-function: cubic-bezier(.33,0,.3,1);
+    animation-duration: 1s;
+  }
+
+  @keyframes circle-rotating-2 {
+    0% {
+      transform: translate(0,10px)
+    }
+
+    50% {
+      transform: translate(0,3px)
+    }
+
+    100% {
+      transform: translate(0,10px)
+    }
+  }
+
+  #pg-icon-3 {
+    background-color: #0381fe;
+    transform: translate(-10px,0);
+  }
+
+  .circle-progress-animation-dot-3 {
+    animation: circle-rotating-3 infinite;
+    animation-timing-function: cubic-bezier(.33,0,.3,1);
+    animation-duration: 1s;
+  }
+
+  @keyframes circle-rotating-3 {
+    0% {
+      transform: translate(-10px,0)
+    }
+
+    50% {
+      transform: translate(-3px,0)
+    }
+
+    100% {
+      transform: translate(-10px,0)
+    }
+  }
+
+  #pg-icon-4 {
+    background-color: #0381fe;
+    transform: translate(0,-10px);
+  }
+
+  .circle-progress-animation-dot-4 {
+    animation: circle-rotating-4 infinite;
+    animation-timing-function: cubic-bezier(.33,0,.3,1);
+    animation-duration: 1s;
+  }
+
+  @keyframes circle-rotating-4 {
+    0% {
+      transform: translate(0,-10px)
+    }
+
+    50% {
+      transform: translate(0,-3px)
+    }
+
+    100% {
+      transform: translate(0,-10px)
+    }
+  }
+}
