@@ -1,21 +1,29 @@
 import Button from "component/button/Button";
 import LineChart from "component/chart/line/LineChart";
 import PieChart from "component/chart/pie/PieChart";
-import Demo from "pages/features/Demo";
+import User from "pages/administrator/User";
 import { Mediator } from "./Mediator";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import {show, hide} from 'utils/loading/loading.reducer';
+import { setData } from 'pages/administrator/user.reducer';
+import axios from 'axios';
 
 function Dashboard() {
 
-  const [isDemo, setIsDemo] = useState(false);
-  
+  const [isShowUser, setIsShowUser] = useState(true);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users').then(res => {
+      console.log(res.data);
+      dispatch(setData(res.data));
+    });
+  }, []);
 
   const btnCb = () => {
     console.log('click');
-    setIsDemo(!isDemo);
+    setIsShowUser(!isShowUser);
     dispatch(show());
 
     setTimeout(() => {
@@ -31,7 +39,7 @@ function Dashboard() {
         <Button mediator={mediator}>Click me now!</Button>
       </div>
       {
-        !isDemo && <div className="d-flex">
+        !isShowUser && <div className="d-flex">
           <div className="w-50 h-500 p-20">
             <LineChart/>
           </div>
@@ -41,7 +49,7 @@ function Dashboard() {
         </div>
       }
       {
-        isDemo && <Demo/>
+        isShowUser && <User data={[]}/>
       }
     </>
   )
